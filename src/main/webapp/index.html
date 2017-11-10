@@ -1,0 +1,183 @@
+<html>
+    <head>
+        <title>Gioco</title>
+        <link rel="stylesheet" type="text/css" href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="skeleton.css">
+        <link rel="stylesheet" type="text/css" href="skeleton-tabs.css">
+
+        <style>
+            body {
+                padding: 2% 10% 2% 10%;
+            }
+            input.input-result {
+                height: 23px;
+                max-width: 50px;
+            }
+            .heading-font-size {
+                font-size: 1.8rem;
+                color: #999;
+                letter-spacing: normal; }
+
+
+        </style>
+
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="skeleton-tabs.js"></script>
+        <script type="text/javascript" src="js/lib/angular.min.js"></script>
+        <script type="text/javascript" src="js/lib/index.js"></script>
+        <script>
+            $.ajax({
+                url: window.location.origin + window.location.pathname + "rest/api/insert",
+                dataType: 'application/json',
+                data: {name: 'Cicciobello'},
+                method: 'POST',
+                success: function (response) {
+                    console.log("ok post")
+                }, error: function (r) {
+                    console.log("error post")
+                }
+            })
+            $.get(window.location.origin + window.location.pathname + "rest/api/get", function (data) {
+//                document.body.innerHTML = data.name;
+            });
+        </script>
+    </head>
+    <body ng-app="app" ng-controller="MainCtrl" >
+        <div class="row">
+            <div class="six columns">
+                <div>                <h4>Giornata 1 <span class="heading-font-size"> Champions League</span></h4>
+
+                </div>
+
+            </div>
+            <div class="one columns">&nbsp;</div>
+            <div class="five columns">
+                <button><</button>&nbsp;<button>></button>&nbsp;<button >nuova stagione</button>
+            </div>
+        </div>
+        <hr>
+
+        <div ng-show="obtained"  id="start" >
+            <hr>
+            <table class="u-full-width">
+                <thead>
+                    <tr>
+                        <th>Database name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dave Gamache</td>
+                    </tr>
+                    <tr>
+                        <td>Dwayne Johnson</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div ng-show="obtained"  id="start"  >
+            <form>
+                <div class="row">
+                    <div class="four columns">
+                        <label for="exampleEmailInput">Numero umani / 8</label>
+                        <input class="u-full-width" type="number">
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="six columns">
+                        <label for="exampleRecipientInput">Squadra 1</label>
+                        <select class="u-full-width" id="exampleRecipientInput">
+                            <option value="Option 1">Questions</option>
+                            <option value="Option 2">Admiration</option>
+                            <option value="Option 3">Can I get your number?</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div ng-show="!obtained"  id="start" >
+            <form> 
+                <div class="container">
+                    <div class="row ">
+                        <div class="three columns">&nbsp;</div>
+                        <div class="six columns">
+                            <div class="row ">
+                                <div class="three columns">squadr1</div>
+                                <div class="two columns">1</div>
+                                <div class="two columns">:</div>
+                                <div class="two columns">3</div>
+                                <div class="three columns">squadr2</div>
+                            </div></div>
+                        <div class="three columns">&nbsp;</div>
+
+                    </div>
+                    <div class="row ">
+                        <div class="one columns">&nbsp;</div>
+                        <div class="one columns">50$</div>
+                        <div class="one columns">&nbsp;</div>
+                        <div class="six columns">
+                            <div class="row ">
+                                <div class="three columns">squadr1</div>
+                                <div class="six columns">
+                                    <div class="row ">
+                                        <div class="five columns"> <input class="input-result " type="text" id="exampleEmailInput"></div>
+                                        <div class="two columns">:</div>
+                                        <div class="five columns"> <input class="input-result " type="text" id="exampleEmailInput"></div>
+                                    </div>
+                                </div>
+                                <div class="three columns">squadr2</div>
+                            </div></div>
+                        <div class="one columns">&nbsp;</div>
+                        <div class="one columns">50$</div>
+                        <div class="one columns">&nbsp;</div>
+
+
+                    </div>
+                </div>
+                <hr>
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>G</th>
+                            <th>V</th>
+                            <th>P</th>
+                            <th>GG</th>
+                            <th>GS</th>
+                            <th>DR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dave Gamache</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+<!--                <ul class="tab-nav">
+                    <li>
+                        <a class="button active" href="#one">Tab 1</a>
+                    </li>
+                    <li>
+                        <a class="button" href="#two">Tab 2</a>
+                    </li>
+                    <li>
+                        <a class="button" href="#three">Tab 3</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="one">...</div>
+                    <div class="tab-pane" id="two">...</div>
+                    <div class="tab-pane" id="three">...</div>
+                </div>-->
+
+            </form>
+        </div>
+    </body>
+</html>
